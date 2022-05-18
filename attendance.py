@@ -2,6 +2,7 @@ from datetime import datetime
 from flask import Flask, render_template, Response
 from flask_sqlalchemy import SQLAlchemy
 
+# https://github.com/J-A-M-E-5/heroku16-buildpack-python-opencv-dlib.git
 
 app = Flask(__name__)
 ENV = 'prod'
@@ -10,7 +11,7 @@ if ENV == 'dev':
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:ROOT@localhost/Attendance'
 else:
     app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://dmuctaiwtifxzb:1b7f129f82d1e95ac1d6e691da2d885684fcca0f790fbab65ccc6d4ed89e2b47@ec2-34-201-95-176.compute-1.amazonaws.com:5432/d1edcsllbhh58s'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://tgccsusylervho:43f523cc6be683379749e80a571f5bbaa971b0b4433a7102c4f96e4cab469eb4@ec2-54-204-56-171.compute-1.amazonaws.com:5432/d2qvn354cn9ils'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
