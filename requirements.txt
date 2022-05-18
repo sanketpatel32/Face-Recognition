@@ -13,7 +13,6 @@ MarkupSafe==2.1.1
 numpy==1.22.3
 opencv-python==4.5.5.64
 Pillow==9.1.1
-psycopg2==2.9.3
 SQLAlchemy==1.4.36
 Werkzeug==2.1.2
 zipp==3.8.0
