@@ -5,6 +5,7 @@ path = 'images'
 images = []
 personName = []
 myList = os.listdir(path)
+myList.remove('.DS_Store')
 # print(myList)
 for cur_img in myList:
     current_img = cv2.imread(f'{path}/{cur_img}')
