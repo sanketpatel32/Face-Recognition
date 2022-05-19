@@ -1,6 +1,6 @@
 import cv2
 import face_recognition
-
+from data import image_indir
 
 def faceEncodings(images):
     encodeList = []

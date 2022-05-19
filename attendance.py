@@ -2,16 +2,15 @@ from datetime import datetime
 from flask import Flask, render_template, Response
 from flask_sqlalchemy import SQLAlchemy
 
-# https://github.com/J-A-M-E-5/heroku16-buildpack-python-opencv-dlib.git
 
 app = Flask(__name__)
-ENV = 'prod'
+ENV = 'dev'
 if ENV == 'dev':
     app.debug = True
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:ROOT@localhost/Attendance'
 else:
     app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://tgccsusylervho:43f523cc6be683379749e80a571f5bbaa971b0b4433a7102c4f96e4cab469eb4@ec2-54-204-56-171.compute-1.amazonaws.com:5432/d2qvn354cn9ils'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://kcigqbolhiwzac:4aa84993e1e93a2a190de02fab7ff0b2b2839d8c1b7701e2d502eb5ba8507623@ec2-3-211-6-217.compute-1.amazonaws.com:5432/db72hsh44qc9ck'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -32,7 +31,7 @@ class Record(db.Model):
 
 def attendance(name):
     db.create_all()
-    data = Record(name, tStr)
+    data = Record(name, time_now.strftime('%H:%M:%S'))
     try:
         db.session.add(data)
     except :

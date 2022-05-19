@@ -1,0 +1,34 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+cmake = "*"
+dlib = "==19.24.0"
+click = "*"
+colorama = "*"
+face-recognition = "*"
+greenlet = "*"
+gunicorn = "*"
+importlib-metadata = "*"
+itsdangerous = "*"
+numpy = "*"
+opencv-python = "*"
+psycopg2 = "*"
+zipp = "*"
+face_recognition_models = "*"
+Flask = "*"
+Flask-SQLAlchemy = "*"
+Jinja2 = "*"
+MarkupSafe = "*"
+Pillow = "*"
+SQLAlchemy = "*"
+Werkzeug = "*"
+autopep8 = "*"
+psycopg2-binary = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
