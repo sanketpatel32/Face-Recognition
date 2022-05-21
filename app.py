@@ -1,6 +1,4 @@
-from datetime import datetime
-from flask import Flask, render_template, Response
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, Response , request , url_for,redirect
 from Frame import get_frame
 import Frame
 app = Flask(__name__)
@@ -8,6 +6,12 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route("/login", methods = ['POST','GET'])
+def login():
+    if request.method == "POST":
+        return redirect(url_for('student'))
+        
 
 @app.route('/video')
 def video():
