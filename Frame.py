@@ -1,5 +1,5 @@
 from data import image_indir , image_name
-from attendance import attendance
+from attendance import add_attendance
 from data import image_indir,image_name
 from faceEncoding import faceEncodings
 import face_recognition
@@ -42,7 +42,7 @@ def get_frame(bool = True):
                 cv2.putText(frame, name, (x1+6, y2-6),
                             cv2.FONT_HERSHEY_COMPLEX, 1, (0, 0, 255), 2)
                 try:
-                    attendance(name)
+                    add_attendance(name)
                 except:
                     pass
         ret, buffer = cv2.imencode('.jpg', frame)
