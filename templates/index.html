@@ -15,15 +15,23 @@
   <meta name="generator" content="Quest">
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400">
-  <link rel="stylesheet" href="index.css">
 
   <script src="index.js"></script>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/modal.css' ) }}"> 
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css' ) }}"> 
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/modal.css' ) }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css' ) }}">
 
 </head>
 
 <body class="websiteBody">
+  <h3 style="text-align: center; color:darkgrey"> 
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </h3>
   <div class="Page-outer">
     <div id="Page" data-name="Page" class="Page">
       <div class="Frame-outer">
@@ -31,7 +39,7 @@
           <div class="Background-outer">
             <div id="Background" data-name="Background" class="Background">
               <div class="milad-fakurian-nY14F-outer">
-              
+
               </div>
             </div>
           </div>
@@ -76,7 +84,8 @@
 
           <div class="Login-1-outer">
             <div id="Login-1" data-name="Login" class="Login-1">
-              <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;font-size:50px;">Login</button>
+              <button onclick="document.getElementById('id01').style.display='block'"
+                style="width:auto;font-size:50px;">Login</button>
               <div id="id01" class="modal">
                 <form class="modal-content animate" action="/login" method="post">
                   <div class="imgcontainer">
@@ -108,7 +117,8 @@
 
           <div class="Login-outer">
             <div id="Login" data-name="Login" class="Login">
-              <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;font-size: 50px;">Login</button>
+              <button onclick="document.getElementById('id02').style.display='block'"
+                style="width:auto;font-size: 50px;">Login</button>
               <div id="id02" class="modal">
 
                 <form class="modal-content animate" action="/login" method="post">
@@ -125,7 +135,7 @@
 
                     <label for="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" required>
-                    
+
                     <button type="submit" style="color:black ;">Login</button>
                     <label>
                       <input type="checkbox" checked="checked" name="remember"> Remember me
@@ -135,7 +145,7 @@
                   <div class="container" style="background-color:#f1f1f1">
                     <button type="button" onclick="document.getElementById('id02').style.display='none'"
                       class="cancelbtn">Cancel</button>
-                    
+
                   </div>
                 </form>
               </div>

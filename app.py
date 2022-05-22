@@ -24,9 +24,12 @@ def login():
         psw = request.form['psw']
         if user == 'sanket' and psw == 'student':
             return redirect(url_for('student'))
-        else:
+        elif user == 'meowmeow' and psw == 'meow':
             return redirect(url_for('teacher'))
-            # return f"{user} and meow"
+        else:
+            flash("Bro please enter the right password or else fuuuuckkk offf")
+            return redirect(url_for('index'))
+            return f"{user} and meow"
 
 # action="{{url_for('add_student')}}"
 @app.route('/Index')
