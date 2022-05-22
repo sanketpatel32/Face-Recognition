@@ -20,9 +20,15 @@ def index():
 @app.route("/login", methods = ['POST','GET'])
 def login():
     if request.method == "POST":
-        return redirect(url_for('student'))
+        user = request.form['uname']
+        psw = request.form['psw']
+        if user == 'sanket' and psw == 'student':
+            return redirect(url_for('student'))
+        else:
+            return redirect(url_for('teacher'))
+            # return f"{user} and meow"
 
-
+# action="{{url_for('add_student')}}"
 @app.route('/Index')
 def Index():
     cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
@@ -59,6 +65,11 @@ def student():
 def home():
     get_frame(False)
     return render_template('index.html')
+
+@app.route('/teacher')
+def teacher():
+    return render_template('teacher.html')
+
 
 
 if __name__ == "__main__":
