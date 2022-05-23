@@ -15,6 +15,7 @@ DB_PASS = "ROOT"
  
 user_list = auth_users()
 admin_list = auth_admin() 
+techer_list = [len(user_list) , 0 ,len(user_list)]
 conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
 
 @app.route('/')
@@ -35,7 +36,7 @@ def login():
             flash("Enter the correct Password")
             return redirect(url_for('index'))
         
-        
+
 @app.route('/Index')
 def Index():
     cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
@@ -75,9 +76,14 @@ def home():
 
 @app.route('/teacher')
 def teacher():
-    return render_template('teacher.html')
-
-
+    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    z = f"SELECT COUNT(*) FROM {attendance_sheet}"
+    cur.execute(z) # Execute the SQL
+    z1 =  cur.fetchall()
+    p = z1[0][0]
+    t = len(user_list)
+    a = t - p
+    return render_template('teacher.html', a = a , p = p,t = t)
 
 if __name__ == "__main__":
     app.run(debug=True ,port=8000,use_reloader=False)
