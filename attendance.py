@@ -3,7 +3,7 @@ import psycopg2 #pip install psycopg2
 import psycopg2.extras
 from datetime import datetime
 DB_HOST = "localhost"
-DB_NAME = "SampleDB"
+DB_NAME = "Attendance"
 DB_USER = "postgres"
 DB_PASS = "ROOT"
  

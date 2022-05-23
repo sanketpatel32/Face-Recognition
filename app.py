@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.secret_key = "meowmeowandolymewo"
  
 DB_HOST = "localhost"
-DB_NAME = "SampleDB"
+DB_NAME = "Attendance"
 DB_USER = "postgres"
 DB_PASS = "ROOT"
  
