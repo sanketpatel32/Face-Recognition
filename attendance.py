@@ -21,20 +21,21 @@ def making_table():
     cur.execute("ROLLBACK")
     conn.commit()
  
-def add_attendance(name , tStr = None , dStr = None):
+def add_attendance(name , time = None , date = None):
     making_table()
     cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
     name = str(name)
     name = name.capitalize()
     time_now = datetime.now()
-    if tStr == '':
-        tStr = time_now.strftime('%H:%M:%S')
-    if dStr == '':
-        dStr = time_now.strftime('%d_%m_%Y') 
+    if time == '' or time == None:
+        time = time_now.strftime('%H:%M:%S')
+    if date == '' or date == None :
+        date = time_now.strftime('%d_%m_%Y') 
     try:
-        cur.execute(f"INSERT INTO {attendance_sheet} (name, time, date) VALUES (%s,%s,%s)", (name, tStr, dStr))
+        cur.execute(f"INSERT INTO {attendance_sheet} (name, time, date) VALUES (%s,%s,%s)", (name, time, date))
         conn.commit()
     except:
         cur.execute("ROLLBACK")
-        conn.commit()    
+        conn.commit() 
+        # pass   
         

@@ -1,12 +1,12 @@
 dict = {}
 
-dict['Sanket'] = "sanket32@"
 dict['Samridhi'] = "sam325cc"
 dict['Ayush'] = "animelove"
 dict['Gauri'] = "arch100"
 dict['Kshitij'] = "kstgh321"
 dict['Obama'] = "expres32"
 dict['Biden'] = "currentpres"
+dict['Sanket'] = "sanket323"
 dict['Milind'] = "mumbailove"
 dict['Radha'] = "mangos19"
 dict['Rutuja'] = "meowiam"
@@ -24,7 +24,7 @@ dict['Vaibhavi'] = "lokesh33"
 dict['Taylor'] = "delicasy"
 dict['Snigdha'] = "shivbro"
 dict['Anushka'] = "classical"
-
+dict['Ashutosh'] = "bdhaios"
 
 def auth_users():
     return dict
