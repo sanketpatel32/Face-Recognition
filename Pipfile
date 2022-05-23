@@ -4,29 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-cmake = "*"
-dlib = "==19.24.0"
-click = "*"
-colorama = "*"
-face-recognition = "*"
-greenlet = "*"
-gunicorn = "*"
-importlib-metadata = "*"
-itsdangerous = "*"
 numpy = "*"
 opencv-python = "*"
+dlib = "==19.24.0"
+face-recognition = "*"
 psycopg2 = "*"
-zipp = "*"
-face_recognition_models = "*"
-Flask = "*"
-Flask-SQLAlchemy = "*"
-Jinja2 = "*"
-MarkupSafe = "*"
-Pillow = "*"
-SQLAlchemy = "*"
-Werkzeug = "*"
-autopep8 = "*"
-psycopg2-binary = "*"
 
 [dev-packages]
 
