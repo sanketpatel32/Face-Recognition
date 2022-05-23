@@ -9,6 +9,7 @@ opencv-python = "*"
 dlib = "==19.24.0"
 face-recognition = "*"
 psycopg2 = "*"
+cmake = "*"
 
 [dev-packages]
 
