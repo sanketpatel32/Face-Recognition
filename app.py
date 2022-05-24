@@ -8,6 +8,8 @@ import psycopg2.extras
 from StudentData import auth_users
 from TeacherData import auth_admin
 from attendance import add_attendance , attendance_sheet , making_table
+from animals import main_frames
+import sys
 app = Flask(__name__)
 app.secret_key = "meowmeowandolymewo"
  
@@ -107,7 +109,7 @@ def about():
 def contact():
     return render_template('contact.html')
 
-
+# Emotion detection
 @app.route('/collecting')
 def collecting():
 	return render_template('collecting.html')
@@ -142,6 +144,73 @@ def predict():
 	pred = np.argmax(pred)
 	final_pred = label_map[pred]
 	return render_template('predict.html', data=final_pred)
+
+
+
+
+
+
+
+
+
+
+
+
+# Animal app
+@app.route('/animals')
+def animals():
+    return render_template('animals.html')
+
+
+@app.route('/video_feed/1')
+def video_feed_dog():
+    print(request.base_url, file=sys.stdout)
+    return Response(main_frames('dog'),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
+@app.route('/video_feed/2')
+def video_feed_pig():
+    print(request.base_url, file=sys.stdout)
+    return Response(main_frames('pig'),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
+@app.route('/video_feed/3')
+def video_feed_panda():
+    print(request.base_url, file=sys.stdout)
+    return Response(main_frames('panda'),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
+@app.route('/video_feed/4')
+def video_feed_snake():
+    print(request.base_url, file=sys.stdout)
+    return Response(main_frames('snake'),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
+@app.route('/pig')
+def pig():
+    return render_template('pig.html')
+
+
+@app.route('/dog')
+def dog():
+    return render_template('dog.html')
+
+
+@app.route('/panda')
+def panda():
+    return render_template('panda.html')
+
+
+@app.route('/snake')
+def snake():
+    return render_template('snake.html')
+
+
+
 
 
 
