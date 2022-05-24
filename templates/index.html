@@ -81,7 +81,7 @@
               <button onclick="document.getElementById('id01').style.display='block'"
                 style="width:auto;font-size:50px;">Login</button>
               <div id="id01" class="modal">
-                <form class="modal-content animate" action="/login" method="post">
+                <form class="modal-content animate" action="/logint" method="post">
                   <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close"
                       title="Close Modal">&times;</span>
@@ -161,6 +161,16 @@
         }
       }
     </script>
+    <section class="footer">
+
+      <div class="box-container">
+
+        <div class="box">
+          <a href="{{url_for('about')}}">about</a>
+          <a href="{{url_for('contact')}}">contact</a>
+        </div>
+      </div>
+    </section>
   </div>
 
 </body>

@@ -29,7 +29,19 @@ def login():
         user = str(user).capitalize()
         if (user , psw) in user_list.items():
             return redirect(url_for('student'))
-        elif (user , psw) in admin_list.items():
+        else:
+            flash("Enter the correct Password")
+            return redirect(url_for('index'))
+        
+        
+        
+@app.route("/logint",methods = ['POST' ,'GET'])        
+def logint():
+    if request.method == "POST":
+        user = request.form['uname']
+        psw = request.form['psw']
+        user = str(user).capitalize()
+        if (user , psw) in admin_list.items():
             return redirect(url_for('teacher'))
         else:
             flash("Enter the correct Password")
@@ -83,6 +95,14 @@ def teacher():
     t = len(user_list)
     a = t - p
     return render_template('teacher.html', a = a , p = p,t = t)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 if __name__ == "__main__":
     app.run(debug=True ,port=8000,use_reloader=False)
