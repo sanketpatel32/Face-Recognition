@@ -27,12 +27,12 @@ admin_list = auth_admin()
 conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER,
                         password=DB_PASS, host=DB_HOST)
 
-
+#front Page
 @app.route('/')
 def index():
     return render_template('index.html')
 
-
+#login Redirect Student
 @app.route("/login", methods=['POST', 'GET'])
 def login():
     if request.method == "POST":
@@ -45,7 +45,7 @@ def login():
             flash("Enter the correct Password")
             return redirect(url_for('index'))
 
-
+#login Redirect Student
 @app.route("/logint", methods=['POST', 'GET'])
 def logint():
     if request.method == "POST":
@@ -59,7 +59,7 @@ def logint():
             flash("Enter the correct Password")
             return redirect(url_for('index'))
 
-
+#attendance Managment Page
 @app.route('/Index')
 def Index():
     cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
@@ -68,7 +68,7 @@ def Index():
     list_users = cur.fetchall()
     return render_template('system.html', list_users=list_users)
 
-
+#Adding Student
 @app.route('/add_student', methods=['POST'])
 def add_student():
     cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
@@ -83,23 +83,23 @@ def add_student():
         flash('Student Added successfully')
         return redirect(url_for('Index'))
 
-
+#vedio at attendance page
 @app.route('/video')
 def video():
     return Response(get_frame(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-
+#student.html
 @app.route('/student')
 def student():
     return render_template('student.html')
 
-
+#homepage redirect
 @app.route('/home')
 def home():
     get_frame(False)
     return render_template('index.html')
 
-
+#veiw attendance page
 @app.route('/teacher')
 def teacher():
     cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
@@ -111,19 +111,25 @@ def teacher():
     a = t - p
     return render_template('teacher.html', a=a, p=p, t=t)
 
-
+#about us page
 @app.route('/about')
 def about():
     return render_template('about.html')
 
-
+#contact page
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
 
+# ---- Fun Zone 
+
+@app.route("/funzone")
+def funzone():
+    return render_template('funzone.html')
+
+
+
 # Emotion detection
-
-
 @app.route('/collecting')
 def collecting():
     return render_template('collecting.html')
@@ -158,6 +164,8 @@ def predict():
     pred = np.argmax(pred)
     final_pred = label_map[pred]
     return render_template('predict.html', data=final_pred)
+
+
 
 
 # Animal app
@@ -214,8 +222,9 @@ def snake():
     return render_template('snake.html')
 
 
-# Drowsness
 
+
+# Drowsness
 @app.route('/drows')
 def drows():
     return Response(drowss(),
@@ -227,9 +236,8 @@ def drowsness():
     return render_template('drowsness.html')
 
 
+
 # Air Canvas
-
-
 @app.route("/canvass")
 def canvass():
     return render_template("canvas.html")
