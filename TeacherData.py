@@ -1,8 +1,6 @@
 dict = {}
 
-dict['Admin'] = "complexno1"
-dict['Maths'] = "algebra"
-
+dict['microsoft'] = "msengage"
 
 def auth_admin():
     return dict
