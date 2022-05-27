@@ -1,6 +1,6 @@
 DB_HOST = "localhost"
-DB_NAME = "Attendance"
-DB_USER = "postgres"
-DB_PASS = "ROOT"
+DB_NAME = ""
+DB_USER = ""
+DB_PASS = ""
 
 
